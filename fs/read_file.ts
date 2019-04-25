@@ -1,4 +1,4 @@
-import { notImplemented } from "../_utils.ts";
+import { notImplemented, intoCallbackAPIWithIntercept } from "../_utils.ts";
 const { readFile: denoReadFile, readFileSync: denoReadFileSync } = Deno;
 
 type ReadFileCallback = (err: Error | null, data: string | Uint8Array) => void;
@@ -52,9 +52,12 @@ export function readFile(
 
   const encoding = getEncoding(optOrCallback);
 
-  denoReadFile(path)
-    .then((data: Uint8Array) => cb && cb(null, maybeDecode(data, encoding)))
-    .catch((err: Error) => cb && cb(err, new Uint8Array(0)));
+  intoCallbackAPIWithIntercept<Uint8Array, string | Uint8Array>(
+    denoReadFile,
+    (data: Uint8Array) => maybeDecode(data, encoding),
+    cb,
+    path
+  );
 }
 
 export function readFileSync(
