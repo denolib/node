@@ -54,7 +54,7 @@ export function readFile(
 
   intoCallbackAPIWithIntercept<Uint8Array, string | Uint8Array>(
     denoReadFile,
-    (data: Uint8Array) => maybeDecode(data, encoding),
+    (data: Uint8Array): string | Uint8Array => maybeDecode(data, encoding),
     cb,
     path
   );
