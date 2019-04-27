@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "lts/*"
 env:
-  - DENO_VERSION="v0.3.9"
+  - DENO_VERSION="v0.3.10"
 before_script:
   - curl -L https://deno.land/x/install/install.sh | sh -s $DENO_VERSION
   - export PATH="$HOME/.deno/bin:$PATH"
