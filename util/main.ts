@@ -1,3 +1,7 @@
+export function isArray(value: unknown): boolean {
+  return Array.isArray(value);
+}
+
 export function isBoolean(value: unknown): boolean {
   return typeof value === "boolean" || value instanceof Boolean;
 }
@@ -36,4 +40,8 @@ export function isError(e: unknown): boolean {
 
 export function isFunction(value: unknown): boolean {
   return typeof value === "function";
+}
+
+export function isRegExp(value: unknown): boolean {
+  return value instanceof RegExp;
 }

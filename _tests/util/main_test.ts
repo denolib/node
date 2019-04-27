@@ -102,4 +102,24 @@ test({
   }
 });
 
+test({
+  name: "[util] isRegExp",
+  fn() {
+    assert(util.isRegExp(new RegExp(/f/)));
+    assert(util.isRegExp(/fuManchu/));
+    assert(!util.isRegExp({ evil: "eye" }));
+    assert(!util.isRegExp(null));
+  }
+});
+
+test({
+  name: "[util] isArray",
+  fn() {
+    assert(util.isArray([]));
+    assert(util.isArray(new Array()));
+    assert(!util.isArray({ yaNo: "array" }));
+    assert(!util.isArray(null));
+  }
+});
+
 runIfMain(import.meta);
