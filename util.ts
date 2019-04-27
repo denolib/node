@@ -1,3 +1,4 @@
+export { types } from "./util/types.ts";
 export {
   isBoolean,
   isNull,
