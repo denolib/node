@@ -1,39 +1,39 @@
-export function isBoolean(value: unknown) {
+export function isBoolean(value: unknown):boolean {
   return typeof value === "boolean" || value instanceof Boolean;
 }
 
-export function isNull(value: unknown) {
+export function isNull(value: unknown):boolean {
   return value === null;
 }
 
-export function isNullOrUndefined(value: unknown) {
+export function isNullOrUndefined(value: unknown):boolean {
   return value === null || value === undefined;
 }
 
-export function isNumber(value: unknown) {
+export function isNumber(value: unknown):boolean {
   return typeof value === "number" || value instanceof Number;
 }
 
-export function isString(value: unknown) {
+export function isString(value: unknown):boolean {
   return typeof value === "string" || value instanceof String;
 }
 
-export function isSymbol(value: unknown) {
+export function isSymbol(value: unknown):boolean {
   return typeof value === "symbol";
 }
 
-export function isUndefined(value: unknown) {
+export function isUndefined(value: unknown):boolean {
   return value === undefined;
 }
 
-export function isObject(value: unknown) {
+export function isObject(value: unknown):boolean {
   return value !== null && typeof value === "object";
 }
 
-export function isError(e: unknown) {
+export function isError(e: unknown):boolean {
   return e instanceof Error;
 }
 
-export function isFunction(value: unknown) {
+export function isFunction(value: unknown):boolean {
   return typeof value === "function";
 }
