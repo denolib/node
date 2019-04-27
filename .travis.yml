@@ -2,11 +2,12 @@ language: node_js
 node_js:
   - "lts/*"
 env:
-  - DENO_VERSION="v0.3.9"
+  - DENO_VERSION="v0.3.10" TS_VERSION="3.4.4"
 before_script:
   - curl -L https://deno.land/x/install/install.sh | sh -s $DENO_VERSION
   - export PATH="$HOME/.deno/bin:$PATH"
-  - npm install -g prettier
+  - npm install -g prettier eslint typescript@$TS_VERSION @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier
 script:
   - prettier -c "./**/*.ts"
+  - eslint **/*.ts --max-warnings=0
   - deno -A _test.ts
